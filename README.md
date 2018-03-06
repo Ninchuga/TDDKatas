@@ -1,2 +1,2 @@
-# TDDKatas
-Solutions of TDD Katas
+# TDD Katas
+My Solutions of TDD Katas
