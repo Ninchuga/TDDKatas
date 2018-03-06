@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToeKata", "TicTacToeKata\TicTacToeKata.csproj", "{47C4DFDE-8F6B-49F8-84EC-A13E177CB24D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordVerifierKata", "PasswordVerifierKata\PasswordVerifierKata.csproj", "{B288DC98-C37B-4F00-8101-7516B6851B57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumeralsKata", "RomanNumeralsKata\RomanNumeralsKata.csproj", "{745CF08F-D90B-4939-9B49-EA731BC8BBC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzzKata", "FizzBuzzKata\FizzBuzzKata.csproj", "{75E19590-B60A-4840-B7AD-162E8C173651}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47C4DFDE-8F6B-49F8-84EC-A13E177CB24D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47C4DFDE-8F6B-49F8-84EC-A13E177CB24D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47C4DFDE-8F6B-49F8-84EC-A13E177CB24D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47C4DFDE-8F6B-49F8-84EC-A13E177CB24D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B288DC98-C37B-4F00-8101-7516B6851B57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B288DC98-C37B-4F00-8101-7516B6851B57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B288DC98-C37B-4F00-8101-7516B6851B57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B288DC98-C37B-4F00-8101-7516B6851B57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{745CF08F-D90B-4939-9B49-EA731BC8BBC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745CF08F-D90B-4939-9B49-EA731BC8BBC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745CF08F-D90B-4939-9B49-EA731BC8BBC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745CF08F-D90B-4939-9B49-EA731BC8BBC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E19590-B60A-4840-B7AD-162E8C173651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E19590-B60A-4840-B7AD-162E8C173651}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E19590-B60A-4840-B7AD-162E8C173651}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E19590-B60A-4840-B7AD-162E8C173651}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D554181F-ADA7-43C4-A895-CA84D97CB88D}
+	EndGlobalSection
+EndGlobal
