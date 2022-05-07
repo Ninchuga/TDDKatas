@@ -2,6 +2,7 @@
 {
     public class MoveRoverForwardCommand : MoveRoverCommand
     {
+        // As an improvement we could create a separate class for each direction
         public override Position Execute(Position currentRoverPosition, Directions currentRoverDirection)
         {
             switch (currentRoverDirection)

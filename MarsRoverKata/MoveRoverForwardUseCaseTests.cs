@@ -11,10 +11,11 @@ namespace MarsRoverKata
         {
             var rover = new Rover(new Position(x: 5, y: 5), Directions.North);
 
-            rover.AddCommand(new MoveRoverForwardCommand()).ExecuteCommands();
+            rover.ExecuteCommand(new MoveRoverForwardCommand());
 
             rover.CurrentPosition.X.Should().Be(4);
             rover.CurrentPosition.Y.Should().Be(5);
+            rover.CurrentDirection.Should().Be(Directions.North);
         }
 
         [Fact]
@@ -22,13 +23,13 @@ namespace MarsRoverKata
         {
             var rover = new Rover(new Position(x: 1, y: 5), Directions.North);
 
-            rover.AddCommand(new MoveRoverForwardCommand())
-                .AddCommand(new MoveRoverForwardCommand())
-                .AddCommand(new MoveRoverForwardCommand())
-                .ExecuteCommands();
+            rover.ExecuteCommand(new MoveRoverForwardCommand())
+                .ExecuteCommand(new MoveRoverForwardCommand())
+                .ExecuteCommand(new MoveRoverForwardCommand());
 
             rover.CurrentPosition.X.Should().Be(1);
             rover.CurrentPosition.Y.Should().Be(5);
+            rover.CurrentDirection.Should().Be(Directions.North);
         }
 
         [Fact]
@@ -36,10 +37,11 @@ namespace MarsRoverKata
         {
             var rover = new Rover(new Position(x: 5, y: 5), Directions.South);
 
-            rover.AddCommand(new MoveRoverForwardCommand()).ExecuteCommands();
+            rover.ExecuteCommand(new MoveRoverForwardCommand());
 
             rover.CurrentPosition.X.Should().Be(6);
             rover.CurrentPosition.Y.Should().Be(5);
+            rover.CurrentDirection.Should().Be(Directions.South);
         }
 
         [Fact]
@@ -47,10 +49,11 @@ namespace MarsRoverKata
         {
             var rover = new Rover(new Position(x: 5, y: 5), Directions.East);
 
-            rover.AddCommand(new MoveRoverForwardCommand()).ExecuteCommands();
+            rover.ExecuteCommand(new MoveRoverForwardCommand());
 
             rover.CurrentPosition.X.Should().Be(5);
             rover.CurrentPosition.Y.Should().Be(6);
+            rover.CurrentDirection.Should().Be(Directions.East);
         }
 
         [Fact]
@@ -58,13 +61,13 @@ namespace MarsRoverKata
         {
             var rover = new Rover(new Position(x: 5, y: 9), Directions.East);
 
-            rover.AddCommand(new MoveRoverForwardCommand())
-                .AddCommand(new MoveRoverForwardCommand())
-                .AddCommand(new MoveRoverForwardCommand())
-                .ExecuteCommands();
+            rover.ExecuteCommand(new MoveRoverForwardCommand())
+                .ExecuteCommand(new MoveRoverForwardCommand())
+                .ExecuteCommand(new MoveRoverForwardCommand());
 
             rover.CurrentPosition.X.Should().Be(5);
             rover.CurrentPosition.Y.Should().Be(10);
+            rover.CurrentDirection.Should().Be(Directions.East);
         }
 
         [Fact]
@@ -72,10 +75,11 @@ namespace MarsRoverKata
         {
             var rover = new Rover(new Position(x: 5, y: 5), Directions.West);
 
-            rover.AddCommand(new MoveRoverForwardCommand()).ExecuteCommands();
+            rover.ExecuteCommand(new MoveRoverForwardCommand());
 
             rover.CurrentPosition.X.Should().Be(5);
             rover.CurrentPosition.Y.Should().Be(4);
+            rover.CurrentDirection.Should().Be(Directions.West);
         }
     }
 }

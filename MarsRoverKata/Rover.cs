@@ -7,34 +7,41 @@ namespace MarsRoverKata
     {
         private Position _currentPosition;
         private Directions _currentDirection;
-        private List<MoveRoverCommand> _commands;
+        //private List<MoveRoverCommand> _commands;
 
         public Rover(Position startingPosition, Directions startingDirection)
         {
             _currentPosition = startingPosition;
             _currentDirection = startingDirection;
-            _commands = new List<MoveRoverCommand>();
+            //_commands = new List<MoveRoverCommand>();
         }
 
         public Position CurrentPosition => _currentPosition;
         public Directions CurrentDirection => _currentDirection;
 
-        public Rover AddCommand(MoveRoverCommand command)
+        public Rover ExecuteCommand(MoveRoverCommand command)
         {
-            _commands.Add(command);
+            _currentPosition = command.Execute(_currentPosition, _currentDirection);
 
             return this;
         }
 
-        public void ExecuteCommands()
-        {
-            foreach (var command in _commands)
-            {
-                _currentPosition = command.Execute(_currentPosition, _currentDirection);
-            }
+        //public Rover AddCommand(MoveRoverCommand command)
+        //{
+        //    _commands.Add(command);
 
-            _commands.Clear();
-        }
+        //    return this;
+        //}
+
+        //public void ExecuteCommands()
+        //{
+        //    foreach (var command in _commands)
+        //    {
+        //        _currentPosition = command.Execute(_currentPosition, _currentDirection);
+        //    }
+
+        //    _commands.Clear();
+        //}
 
         internal Rover TurnLeft()
         {
