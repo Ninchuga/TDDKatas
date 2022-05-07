@@ -17,6 +17,7 @@ namespace MarsRoverKata
         }
 
         public Position CurrentPosition => _currentPosition;
+        public Directions CurrentDirection => _currentDirection;
 
         public Rover AddCommand(MoveRoverCommand command)
         {
@@ -31,40 +32,56 @@ namespace MarsRoverKata
             {
                 _currentPosition = command.Execute(_currentPosition, _currentDirection);
             }
+
+            _commands.Clear();
         }
 
-        internal Directions TurnLeft()
+        internal Rover TurnLeft()
         {
             switch (_currentDirection)
             {
                 case Directions.North:
-                    return Directions.West;
+                    _currentDirection = Directions.West;
+                    break;
                 case Directions.South:
-                    return Directions.East;
+                    _currentDirection = Directions.East;
+                    break;
                 case Directions.East:
-                    return Directions.North;
+                    _currentDirection = Directions.North;
+                    break;
                 case Directions.West:
-                    return Directions.South;
+                    _currentDirection = Directions.South;
+                    break;
                 default:
-                    return Directions.North;
+                    _currentDirection = Directions.North;
+                    break;
             }
+
+            return this;
         }
 
-        internal Directions TurnRight()
+        internal Rover TurnRight()
         {
             switch (_currentDirection)
             {
                 case Directions.North:
-                    return Directions.East;
+                    _currentDirection = Directions.East;
+                    break;
                 case Directions.South:
-                    return Directions.West;
+                    _currentDirection = Directions.West;
+                    break;
                 case Directions.East:
-                    return Directions.South;
+                    _currentDirection = Directions.South;
+                    break;
                 case Directions.West:
-                    return Directions.North;
+                    _currentDirection = Directions.North;
+                    break;
                 default:
-                    return Directions.North;
+                    _currentDirection = Directions.North;
+                    break;
             }
+
+            return this;
         }
     }
 }

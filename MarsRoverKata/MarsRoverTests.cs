@@ -83,9 +83,9 @@ namespace MarsRoverKata
         {
             var rover = new Rover(new Position(x: 5, y: 5), Directions.North);
 
-            var currentDirection = rover.TurnLeft();
+            rover.TurnLeft();
 
-            currentDirection.Should().Be(Directions.West);
+            rover.CurrentDirection.Should().Be(Directions.West);
         }
 
         [Fact]
@@ -93,9 +93,9 @@ namespace MarsRoverKata
         {
             var rover = new Rover(new Position(x: 5, y: 5), Directions.West);
 
-            var currentDirection = rover.TurnLeft();
+            rover.TurnLeft();
 
-            currentDirection.Should().Be(Directions.South);
+            rover.CurrentDirection.Should().Be(Directions.South);
         }
 
         [Fact]
@@ -103,9 +103,9 @@ namespace MarsRoverKata
         {
             var rover = new Rover(new Position(x: 5, y: 5), Directions.South);
 
-            var currentDirection = rover.TurnLeft();
+            rover.TurnLeft();
 
-            currentDirection.Should().Be(Directions.East);
+            rover.CurrentDirection.Should().Be(Directions.East);
         }
 
         [Fact]
@@ -113,9 +113,9 @@ namespace MarsRoverKata
         {
             var rover = new Rover(new Position(x: 5, y: 5), Directions.East);
 
-            var currentDirection = rover.TurnLeft();
+            rover.TurnLeft();
 
-            currentDirection.Should().Be(Directions.North);
+            rover.CurrentDirection.Should().Be(Directions.North);
         }
 
         [Fact]
@@ -123,9 +123,9 @@ namespace MarsRoverKata
         {
             var rover = new Rover(new Position(x: 5, y: 5), Directions.North);
 
-            var currentDirection = rover.TurnRight();
+            rover.TurnRight();
 
-            currentDirection.Should().Be(Directions.East);
+            rover.CurrentDirection.Should().Be(Directions.East);
         }
 
         [Fact]
@@ -133,9 +133,9 @@ namespace MarsRoverKata
         {
             var rover = new Rover(new Position(x: 5, y: 5), Directions.East);
 
-            var currentDirection = rover.TurnRight();
+            rover.TurnRight();
 
-            currentDirection.Should().Be(Directions.South);
+            rover.CurrentDirection.Should().Be(Directions.South);
         }
 
         [Fact]
@@ -143,9 +143,9 @@ namespace MarsRoverKata
         {
             var rover = new Rover(new Position(x: 5, y: 5), Directions.South);
 
-            var currentDirection = rover.TurnRight();
+            rover.TurnRight();
 
-            currentDirection.Should().Be(Directions.West);
+            rover.CurrentDirection.Should().Be(Directions.West);
         }
 
         [Fact]
@@ -153,9 +153,9 @@ namespace MarsRoverKata
         {
             var rover = new Rover(new Position(x: 5, y: 5), Directions.West);
 
-            var currentDirection = rover.TurnRight();
+            rover.TurnRight();
 
-            currentDirection.Should().Be(Directions.North);
+            rover.CurrentDirection.Should().Be(Directions.North);
         }
 
         [Fact]
@@ -268,6 +268,83 @@ namespace MarsRoverKata
 
             rover.CurrentPosition.X.Should().Be(7);
             rover.CurrentPosition.Y.Should().Be(5);
+        }
+
+        [Fact]
+        public void ShoudMoveForwardInNorthDirectionAndThenTurnToEastAndMoveForward()
+        {
+            var rover = new Rover(new Position(x: 5, y: 5), Directions.North);
+
+            rover.AddCommand(new MoveRoverForwardCommand())
+                .AddCommand(new MoveRoverForwardCommand())
+                .ExecuteCommands();
+            rover
+                .TurnRight()
+                .AddCommand(new MoveRoverForwardCommand())
+                .AddCommand(new MoveRoverForwardCommand())
+                .ExecuteCommands();
+
+            rover.CurrentPosition.X.Should().Be(3);
+            rover.CurrentPosition.Y.Should().Be(7);
+            rover.CurrentDirection.Should().Be(Directions.East);
+        }
+
+        [Fact]
+        public void ShoudMoveForwardInWestDirectionAndThenTurnToEastAndMoveForward()
+        {
+            var rover = new Rover(new Position(x: 5, y: 5), Directions.West);
+
+            rover.AddCommand(new MoveRoverForwardCommand())
+                .AddCommand(new MoveRoverForwardCommand())
+                .ExecuteCommands();
+            rover
+                .TurnRight()
+                .TurnRight()
+                .AddCommand(new MoveRoverForwardCommand())
+                .ExecuteCommands();
+
+            rover.CurrentPosition.X.Should().Be(5);
+            rover.CurrentPosition.Y.Should().Be(4);
+            rover.CurrentDirection.Should().Be(Directions.East);
+        }
+
+        [Fact]
+        public void ShoudMoveBackwardsInNorthDirectionAndThenTurnToEastAndMoveForward()
+        {
+            var rover = new Rover(new Position(x: 5, y: 5), Directions.North);
+
+            rover.AddCommand(new MoveRoverBackwardsCommand())
+                .AddCommand(new MoveRoverBackwardsCommand())
+                .ExecuteCommands();
+            rover
+                .TurnRight()
+                .AddCommand(new MoveRoverForwardCommand())
+                .AddCommand(new MoveRoverForwardCommand())
+                .ExecuteCommands();
+
+            rover.CurrentPosition.X.Should().Be(7);
+            rover.CurrentPosition.Y.Should().Be(7);
+            rover.CurrentDirection.Should().Be(Directions.East);
+        }
+
+        [Fact]
+        public void ShoudMoveBackwardsInWestDirectionAndThenTurnToEastAndMoveForward()
+        {
+            var rover = new Rover(new Position(x: 5, y: 5), Directions.West);
+
+            rover.AddCommand(new MoveRoverBackwardsCommand())
+                .AddCommand(new MoveRoverBackwardsCommand())
+                .ExecuteCommands();
+            rover
+                .TurnRight()
+                .TurnRight()
+                .AddCommand(new MoveRoverForwardCommand())
+                .AddCommand(new MoveRoverForwardCommand())
+                .ExecuteCommands();
+
+            rover.CurrentPosition.X.Should().Be(5);
+            rover.CurrentPosition.Y.Should().Be(9);
+            rover.CurrentDirection.Should().Be(Directions.East);
         }
     }
 }
