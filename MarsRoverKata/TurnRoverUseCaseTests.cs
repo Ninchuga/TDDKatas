@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using MarsRoverKata.Directions;
 using Xunit;
 
 namespace MarsRoverKata
@@ -8,81 +9,81 @@ namespace MarsRoverKata
         [Fact]
         public void ShouldTurnRoverLeftToWestWhenOnNorth()
         {
-            var rover = new Rover(new Position(x: 5, y: 5), Directions.North);
+            var rover = new Rover(new Position(x: 5, y: 5), new North());
 
             rover.TurnLeft();
 
-            rover.CurrentDirection.Should().Be(Directions.West);
+            rover.CurrentDirection.Should().BeOfType(typeof(West));
         }
 
         [Fact]
         public void ShouldTurnRoverLeftToSouthWhenOnWest()
         {
-            var rover = new Rover(new Position(x: 5, y: 5), Directions.West);
+            var rover = new Rover(new Position(x: 5, y: 5), new West());
 
             rover.TurnLeft();
 
-            rover.CurrentDirection.Should().Be(Directions.South);
+            rover.CurrentDirection.Should().BeOfType(typeof(South));
         }
 
         [Fact]
         public void ShouldTurnRoverLeftToEastWhenOnSouth()
         {
-            var rover = new Rover(new Position(x: 5, y: 5), Directions.South);
+            var rover = new Rover(new Position(x: 5, y: 5), new South());
 
             rover.TurnLeft();
 
-            rover.CurrentDirection.Should().Be(Directions.East);
+            rover.CurrentDirection.Should().BeOfType(typeof(East));
         }
 
         [Fact]
         public void ShouldTurnRoverLeftToNorthWhenOnEast()
         {
-            var rover = new Rover(new Position(x: 5, y: 5), Directions.East);
+            var rover = new Rover(new Position(x: 5, y: 5), new East());
 
             rover.TurnLeft();
 
-            rover.CurrentDirection.Should().Be(Directions.North);
+            rover.CurrentDirection.Should().BeOfType(typeof(North));
         }
 
         [Fact]
         public void ShouldTurnRoverRightToEastWhenOnNorth()
         {
-            var rover = new Rover(new Position(x: 5, y: 5), Directions.North);
+            var rover = new Rover(new Position(x: 5, y: 5), new North());
 
             rover.TurnRight();
 
-            rover.CurrentDirection.Should().Be(Directions.East);
+            rover.CurrentDirection.Should().BeOfType(typeof(East));
         }
 
         [Fact]
         public void ShouldTurnRoverRightToSouthWhenOnEast()
         {
-            var rover = new Rover(new Position(x: 5, y: 5), Directions.East);
+            var rover = new Rover(new Position(x: 5, y: 5), new East());
 
             rover.TurnRight();
 
-            rover.CurrentDirection.Should().Be(Directions.South);
+            rover.CurrentDirection.Should().BeOfType(typeof(South));
         }
 
         [Fact]
         public void ShouldTurnRoverRightToWestWhenOnSouth()
         {
-            var rover = new Rover(new Position(x: 5, y: 5), Directions.South);
+            var rover = new Rover(new Position(x: 5, y: 5), new South());
 
             rover.TurnRight();
 
-            rover.CurrentDirection.Should().Be(Directions.West);
+            rover.CurrentDirection.Should().BeOfType(typeof(West));
         }
 
         [Fact]
         public void ShouldTurnRoverRightToNorthWhenOnWest()
         {
-            var rover = new Rover(new Position(x: 5, y: 5), Directions.West);
+            var rover = new Rover(new Position(x: 5, y: 5), new West());
 
             rover.TurnRight();
 
-            rover.CurrentDirection.Should().Be(Directions.North);
+            rover.CurrentDirection.Should().BeOfType(typeof(North));
         }
     }
 }

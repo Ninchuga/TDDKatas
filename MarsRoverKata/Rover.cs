@@ -1,4 +1,5 @@
 ﻿using MarsRoverKata.Commands;
+using MarsRoverKata.Directions;
 using System.Collections.Generic;
 
 namespace MarsRoverKata
@@ -6,10 +7,10 @@ namespace MarsRoverKata
     internal class Rover
     {
         private Position _currentPosition;
-        private Directions _currentDirection;
+        private Direction _currentDirection;
         //private List<MoveRoverCommand> _commands;
 
-        public Rover(Position startingPosition, Directions startingDirection)
+        public Rover(Position startingPosition, Direction startingDirection)
         {
             _currentPosition = startingPosition;
             _currentDirection = startingDirection;
@@ -17,7 +18,7 @@ namespace MarsRoverKata
         }
 
         public Position CurrentPosition => _currentPosition;
-        public Directions CurrentDirection => _currentDirection;
+        public Direction CurrentDirection => _currentDirection;
 
         public Rover ExecuteCommand(MoveRoverCommand command)
         {
@@ -45,22 +46,22 @@ namespace MarsRoverKata
 
         internal Rover TurnLeft()
         {
-            switch (_currentDirection)
+            switch (_currentDirection.GetType().Name)
             {
-                case Directions.North:
-                    _currentDirection = Directions.West;
+                case nameof(North):
+                    _currentDirection = new West();
                     break;
-                case Directions.South:
-                    _currentDirection = Directions.East;
+                case nameof(South):
+                    _currentDirection = new East();
                     break;
-                case Directions.East:
-                    _currentDirection = Directions.North;
+                case nameof(East):
+                    _currentDirection = new North();
                     break;
-                case Directions.West:
-                    _currentDirection = Directions.South;
+                case nameof(West):
+                    _currentDirection = new South();
                     break;
                 default:
-                    _currentDirection = Directions.North;
+                    _currentDirection = new North();
                     break;
             }
 
@@ -69,22 +70,22 @@ namespace MarsRoverKata
 
         internal Rover TurnRight()
         {
-            switch (_currentDirection)
+            switch (_currentDirection.GetType().Name)
             {
-                case Directions.North:
-                    _currentDirection = Directions.East;
+                case nameof(North):
+                    _currentDirection = new East();
                     break;
-                case Directions.South:
-                    _currentDirection = Directions.West;
+                case nameof(South):
+                    _currentDirection = new West();
                     break;
-                case Directions.East:
-                    _currentDirection = Directions.South;
+                case nameof(East):
+                    _currentDirection = new South();
                     break;
-                case Directions.West:
-                    _currentDirection = Directions.North;
+                case nameof(West):
+                    _currentDirection = new North();
                     break;
                 default:
-                    _currentDirection = Directions.North;
+                    _currentDirection = new North();
                     break;
             }
 
